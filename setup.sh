@@ -5,6 +5,10 @@ BASE_FOLDER=$(pwd)
 echo "Base folder: $BASE_FOLDER"
 
 # ------------------------------------------------------------------
+echo "Configuring TMUX..."
+ln -s "$BASE_FOLDER/confs/tmux/.tmux.conf" "$HOME/.tmux.conf"
+
+# ------------------------------------------------------------------
 echo "Configuring NEOVIM..."
 is_neovim_available=$(command -v nvim > /dev/null)
 if ! $is_neovim_available; then
