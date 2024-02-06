@@ -10,13 +10,13 @@
 [colors.primary]
 
 background = "#282A36"
-foreground = "#f8f8f2"
-bright_foreground = "#ffffff"
+foreground = "#F8F8F2"
+bright_foreground = "#FFFFFF"
 
 [colors.cursor]
 
-text = "#282a36"
-cursor = "#f8f8f2"
+text = "#282A36"
+cursor = "#F8F8F2"
 
 [colors.vi_mode_cursor]
 
