@@ -4,6 +4,7 @@ local keymap = vim.keymap
 
 -- Coding & formating
 keymap.set("v", "<C-c>", '"+y')
+keymap.set("n", "<S-u>", ":redo<CR>")
 keymap.set("n", "<C-z>", ":undo<CR>")
 keymap.set("n", "<C-s>", ":wa<CR>")
 keymap.set("n", "ff", ":FormatWrite<CR>")
@@ -39,17 +40,17 @@ keymap.set("n", "<leader>gst", ":Telescope git_status<CR>")
 keymap.set("n", "<leader>gbr", ":Telescope git_branches<CR>")
 
 -- LSP
-keymap.set("n", "gD", vim.lsp.buf.declaration)                     -- go to declaration
-keymap.set("n", "gR", ":Telescope lsp_references<CR>")             -- show definition, references
-keymap.set("n", "gd", ":Telescope lsp_definitions<CR>")            -- show lsp definitions
-keymap.set("n", "gi", ":Telescope lsp_implementations<CR>")        -- show lsp implementations
-keymap.set("n", "gt", ":Telescope lsp_type_definitions<CR>")       -- show lsp type definitions
-keymap.set("n", "gh", vim.lsp.buf.hover)                           -- show documentation for what is under cursor
+keymap.set("n", "gD", vim.lsp.buf.declaration) -- go to declaration
+keymap.set("n", "gR", ":Telescope lsp_references<CR>") -- show definition, references
+keymap.set("n", "gd", ":Telescope lsp_definitions<CR>") -- show lsp definitions
+keymap.set("n", "gi", ":Telescope lsp_implementations<CR>") -- show lsp implementations
+keymap.set("n", "gt", ":Telescope lsp_type_definitions<CR>") -- show lsp type definitions
+keymap.set("n", "gh", vim.lsp.buf.hover) -- show documentation for what is under cursor
 keymap.set("n", "<leader>D", ":Telescope diagnostics bufnr=0<CR>") -- show  diagnostics for file
-keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)    -- see available code actions, in visual mode will apply to selection
-keymap.set("n", "<leader>rn", vim.lsp.buf.rename)                  -- smart rename
-keymap.set("n", "<leader>er", vim.diagnostic.open_float)           -- show diagnostics for line
-keymap.set("n", "<leader>rs", ":LspRestart<CR>")                   -- mapping to restart lsp if necessary
-keymap.set("n", "]d", ":lua vim.diagnostic.goto_next()<CR>")       -- jump to next diagnostic in buffer
-keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev()<CR>")       -- jump to previous diagnostic in buffer
-keymap.set("n", "nn", ":lua vim.diagnostic.goto_next()<CR>")       -- jump to next diagnostic in buffer
+keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action) -- see available code actions, in visual mode will apply to selection
+keymap.set("n", "<leader>rn", vim.lsp.buf.rename) -- smart rename
+keymap.set("n", "<leader>er", vim.diagnostic.open_float) -- show diagnostics for line
+keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+keymap.set("n", "]d", ":lua vim.diagnostic.goto_next()<CR>") -- jump to next diagnostic in buffer
+keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev()<CR>") -- jump to previous diagnostic in buffer
+keymap.set("n", "nn", ":lua vim.diagnostic.goto_next()<CR>") -- jump to next diagnostic in buffer
