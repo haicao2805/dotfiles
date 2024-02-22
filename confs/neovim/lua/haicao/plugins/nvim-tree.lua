@@ -19,9 +19,6 @@ return {
 				width = 35,
 			},
 			renderer = {},
-      git = {
-        enable = false, ignore = false, timeout = 400
-      }
 		})
 	end,
 }
