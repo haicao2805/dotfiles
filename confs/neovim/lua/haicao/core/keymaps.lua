@@ -39,6 +39,10 @@ keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>")
 keymap.set("n", "<leader>gst", ":Telescope git_status<CR>")
 keymap.set("n", "<leader>gbr", ":Telescope git_branches<CR>")
 
+-- Diffview
+keymap.set("n", "<leader>ogst", ":DiffviewOpen<CR>")
+keymap.set("n", "<leader>cgst", ":DiffviewClose<CR>")
+
 -- LSP
 keymap.set("n", "gD", vim.lsp.buf.declaration) -- go to declaration
 keymap.set("n", "gR", ":Telescope lsp_references<CR>") -- show definition, references
@@ -51,6 +55,5 @@ keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action) -- see available
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename) -- smart rename
 keymap.set("n", "<leader>er", vim.diagnostic.open_float) -- show diagnostics for line
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-keymap.set("n", "]d", ":lua vim.diagnostic.goto_next()<CR>") -- jump to next diagnostic in buffer
-keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev()<CR>") -- jump to previous diagnostic in buffer
-keymap.set("n", "nn", ":lua vim.diagnostic.goto_next()<CR>") -- jump to next diagnostic in buffer
+keymap.set("n", "m", ":lua vim.diagnostic.goto_next()<CR>") -- jump to next diagnostic in buffer
+keymap.set("n", "M", ":lua vim.diagnostic.goto_prev()<CR>") -- jump to previous diagnostic in buffer

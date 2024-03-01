@@ -18,7 +18,45 @@ return {
 			view = {
 				width = 35,
 			},
-			renderer = {},
+			git = {
+				enable = true,
+				ignore = true,
+			},
+			diagnostics = {
+				enable = true,
+				icons = {
+					error = " ",
+					warning = " ",
+					hint = "󰠠 ",
+					info = " ",
+				},
+			},
+			renderer = {
+				indent_markers = {
+					enable = true,
+				},
+				highlight_git = true,
+				root_folder_modifier = ":t",
+				icons = {
+					show = {
+						file = true,
+						folder = true,
+						folder_arrow = true,
+						git = true,
+					},
+					glyphs = {
+						default = "",
+						symlink = "",
+						folder = {
+							default = "",
+							open = "",
+							empty = "",
+							empty_open = "",
+							symlink = "",
+						},
+					},
+				},
+			},
 		})
 	end,
 }
