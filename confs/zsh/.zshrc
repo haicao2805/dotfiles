@@ -71,7 +71,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,6 +91,16 @@ export NVM_DIR="$HOME/.nvm"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+# nvim alias
 alias nv="nvim ."
+
+# Git alias
 alias gc="git checkout"
 alias gm="git merge"
+
+# Docker alias
+alias dcon="docker container"
+alias dimg="docker image"
+
+# Other alias
+alias ws="cd ~/Workspace"
