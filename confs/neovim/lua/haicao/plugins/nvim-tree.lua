@@ -31,6 +31,10 @@ return {
 					info = " ",
 				},
 			},
+			update_focused_file = {
+				enable = true,
+				ignore_list = {},
+			},
 			renderer = {
 				indent_markers = {
 					enable = true,

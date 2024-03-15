@@ -23,6 +23,12 @@ keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+keymap.set("v", "ge", "$")
+keymap.set("v", "gf", "0")
+keymap.set("n", "ge", "$")
+keymap.set("n", "gf", "0")
+keymap.set("i", "jk", "<ESC>")
+keymap.set("i", "kj", "<ESC>")
 
 -- NvimTree
 keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>")
