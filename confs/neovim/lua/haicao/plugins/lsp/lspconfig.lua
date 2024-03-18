@@ -43,6 +43,15 @@ return {
 			capabilities = capabilities,
 		})
 
+		-- configure tailwindcss server
+		lspconfig["pyright"].setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig["eslint"].setup({
+			capabilities = capabilities,
+		})
+
 		-- configure graphql language server
 		lspconfig["graphql"].setup({
 			capabilities = capabilities,
