@@ -48,9 +48,9 @@ return {
 			capabilities = capabilities,
 		})
 
-		lspconfig["eslint"].setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig["eslint"].setup({
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- configure graphql language server
 		lspconfig["graphql"].setup({

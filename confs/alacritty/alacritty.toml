@@ -9,7 +9,7 @@
 
 [colors.primary]
 
-background = "#282A36"
+background = "#000000"
 foreground = "#F8F8F2"
 bright_foreground = "#FFFFFF"
 

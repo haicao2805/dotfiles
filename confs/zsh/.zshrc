@@ -97,10 +97,11 @@ alias nv="nvim ."
 # Git alias
 alias gc="git checkout"
 alias gm="git merge"
+alias gac="git add . && git commit -m"
 
 # Docker alias
 alias dcon="docker container"
 alias dimg="docker image"
 
 # Other alias
-alias ws="cd ~/Workspace"
+alias ws="cd ~/Workspace && tmux"
