@@ -45,10 +45,6 @@ keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>")
 keymap.set("n", "<leader>gst", ":Telescope git_status<CR>")
 keymap.set("n", "<leader>gbr", ":Telescope git_branches<CR>")
 
--- Diffview
-keymap.set("n", "<leader>ogst", ":DiffviewOpen<CR>")
-keymap.set("n", "<leader>cgst", ":DiffviewClose<CR>")
-
 -- LSP
 keymap.set("n", "gD", vim.lsp.buf.declaration) -- go to declaration
 keymap.set("n", "gR", ":Telescope lsp_references<CR>") -- show definition, references

@@ -2,14 +2,13 @@ return {
 	"Mofiqul/dracula.nvim",
 	config = function()
 		vim.cmd([[colorscheme dracula]])
-		vim.cmd([[
-		     hi normal guibg=#000000
-		  ]])
-		vim.cmd([[
-		     hi nvimtreenormal guibg=#222222
-		  ]])
-		vim.cmd([[
-		     hi telescopenormal guibg=#000000
-		  ]])
+
+		-- Override Background
+		vim.cmd([[hi normal                                    guibg=#000000]])
+		vim.cmd([[hi signcolumn                                guibg=#000000]])
+		vim.cmd([[hi telescopenormal                           guibg=#000000]])
+    vim.cmd([[hi nvimtreenormal                            guibg=#222222]])
+		-- Override Foreground
+		vim.cmd([[hi endofbuffer                               guifg=#000000]])
 	end,
 }
