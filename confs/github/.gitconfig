@@ -1,0 +1,24 @@
+[user]
+  email = haicao2805@gmail.com
+  name = Cao Chi Hai
+[credential]
+  helper = store
+[pull]
+  rebase = false
+[core]
+  editor = /usr/bin/vim
+  pager = delta
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[diff]
+  tool = nvimdiff
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[push]
+  autoSetupRemote = true
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true

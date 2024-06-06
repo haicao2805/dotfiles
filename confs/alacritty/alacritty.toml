@@ -9,14 +9,14 @@
 
 [colors.primary]
 
-background = "#000000"
-foreground = "#F8F8F2"
-bright_foreground = "#FFFFFF"
+background = "#282a36"
+foreground = "#f8f8f2"
+bright_foreground = "#ffffff"
 
 [colors.cursor]
 
-text = "#282A36"
-cursor = "#F8F8F2"
+text = "#282a36"
+cursor = "#f8f8f2"
 
 [colors.vi_mode_cursor]
 
@@ -74,3 +74,23 @@ background = "#f1fa8c"
 
 foreground = "#f1fa8c"
 background = "#282a36"
+
+######################
+
+[font]
+
+size = 8
+
+[shell]
+
+program = "/bin/zsh"
+
+[window]
+
+decorations = "full"
+decorations_theme_variant = "Dark"
+dynamic_padding = false
+dynamic_title = true
+opacity = 1.0
+startup_mode = "Windowed"
+title = "Hai Cao"

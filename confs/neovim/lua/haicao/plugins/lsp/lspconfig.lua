@@ -28,6 +28,11 @@ return {
 			capabilities = capabilities,
 		})
 
+    -- configure spell check
+    lspconfig["typos_lsp"].setup({
+      capabilities = capabilities
+    })
+
 		-- configure typescript server with plugin
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
