@@ -28,10 +28,10 @@ return {
 			capabilities = capabilities,
 		})
 
-    -- configure spell check
-    lspconfig["typos_lsp"].setup({
-      capabilities = capabilities
-    })
+		-- configure spell check
+		-- lspconfig["typos_lsp"].setup({
+		--   capabilities = capabilities
+		-- })
 
 		-- configure typescript server with plugin
 		lspconfig["tsserver"].setup({
@@ -43,25 +43,30 @@ return {
 			capabilities = capabilities,
 		})
 
-		-- configure tailwindcss server
-		lspconfig["tailwindcss"].setup({
+		-- configure dart server
+		lspconfig["dartls"].setup({
 			capabilities = capabilities,
 		})
 
 		-- configure tailwindcss server
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig["tailwindcss"].setup({
+		-- 	capabilities = capabilities,
+		-- })
+
+		-- configure tailwindcss server
+		-- lspconfig["pyright"].setup({
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- lspconfig["eslint"].setup({
 		-- 	capabilities = capabilities,
 		-- })
 
 		-- configure graphql language server
-		lspconfig["graphql"].setup({
-			capabilities = capabilities,
-			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-		})
+		-- lspconfig["graphql"].setup({
+		-- 	capabilities = capabilities,
+		-- 	filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+		-- })
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({

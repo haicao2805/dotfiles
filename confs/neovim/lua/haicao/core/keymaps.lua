@@ -2,7 +2,7 @@ vim.g.mapleader = "\\"
 
 local keymap = vim.keymap
 
--- Coding & formating
+-- Coding & formatting
 keymap.set("v", "<C-c>", '"+y')
 keymap.set("n", "<S-u>", ":redo<CR>")
 keymap.set("n", "<C-z>", ":undo<CR>")
