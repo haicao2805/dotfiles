@@ -38,3 +38,5 @@ set.secure = true
 
 set.scrolloff = 8
 set.signcolumn = "yes"
+
+set.clipboard = "unnamedplus"
