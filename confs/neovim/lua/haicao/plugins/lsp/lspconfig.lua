@@ -34,7 +34,7 @@ return {
 		-- })
 
 		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 		})
 
@@ -49,9 +49,9 @@ return {
 		})
 
 		-- configure tailwindcss server
-		-- lspconfig["tailwindcss"].setup({
-		-- 	capabilities = capabilities,
-		-- })
+		lspconfig["tailwindcss"].setup({
+			capabilities = capabilities,
+		})
 
 		-- configure tailwindcss server
 		-- lspconfig["pyright"].setup({

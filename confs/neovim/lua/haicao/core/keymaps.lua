@@ -31,7 +31,7 @@ keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>")
 keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>")
 
 -- Telescope
-keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
+keymap.set("n", "<C-p>", ":Telescope find_files<CR>")
 keymap.set("n", "<leader>fg", ":Telescope grep_string<CR>")
 keymap.set("n", "<leader>fe", function()
 	local builtin = require("telescope.builtin")
