@@ -100,7 +100,6 @@ append_path () {
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -108,6 +107,7 @@ export NVM_DIR="$HOME/.nvm"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 append_path "/usr/bin/flutter/bin"
+append_path "/usr/local/go/bin"
 
 export ANDROID_HOME=$HOME/Android/Sdk
 append_path $ANDROID_HOME/emulator

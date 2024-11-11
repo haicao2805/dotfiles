@@ -67,6 +67,11 @@ return {
 		-- 	capabilities = capabilities,
 		-- 	filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 		-- })
+    --
+		-- configure golang language server
+		lspconfig["gopls"].setup({
+			capabilities = capabilities,
+		})
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
