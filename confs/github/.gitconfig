@@ -6,10 +6,11 @@
 [pull]
   rebase = false
 [core]
-  editor = /usr/bin/vim
+  editor = /usr/bin/nvim
   pager = delta
 [merge]
-  tool = vscode
+  conflictstyle = diff3
+  tool = nvimdiff
 [mergetool "vscode"]
   cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [diff]

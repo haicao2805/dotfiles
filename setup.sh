@@ -37,3 +37,7 @@ fi
 
 echo "Successfully configure all dotfiles!"
 exit 0
+
+# ------------------------------------------------------------------
+echo "Configuring git"
+ln -s "$BASE_FOLDER/confs/github/.gitconfig" "$HOME/.gitconfig"
