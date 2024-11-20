@@ -16,5 +16,4 @@ return {
       pre_hook = ts_context_commentstring.create_pre_hook(),
     })
   end,
-	
 }
