@@ -1,2 +1,2 @@
-require("haicao.core")
-require("haicao.lazy")
+require("src.core")
+require("src.lazy")
