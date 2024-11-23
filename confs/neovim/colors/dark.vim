@@ -12,14 +12,15 @@ let g:colors_name = "dark"
 
 " --------------------------
 " Palette
-let s:bg = "#1E1F22"
+let s:bg = "#1e1f22"
 let s:fg = "#BCBEC4"
 
 let s:blue = "#56A8F5"
-let s:blue_2 = "#2AACB8"
+let s:cyan = "#2AACB8"
 let s:orange = "#CF8E6D"
 let s:green = "#6AAB73"
 let s:purple = "#9876AA"
+let s:pink = "#C77DBB"
 let s:yellow_bright = "#FFC66D"
 let s:yellow = "#BBB529"
 let s:red = "#F75464"
@@ -50,7 +51,7 @@ if (has("gui_running") || &t_Co == 88 || &t_Co == 256)
   call Color("Keyword", s:orange, "", "")
   call Color("Keywords", s:orange, "", "")
   call Color("Identifier", s:fg, "", "")
-  call Color("Function", s:yellow_bright, "", "bold")
+  call Color("Function", s:blue, "", "bold")
   call Color("Statement", s:yellow, "", "")
   call Color("Conditional", s:orange, "", "")
   call Color("Repeat", s:orange, "", "")
@@ -108,22 +109,15 @@ if (has("gui_running") || &t_Co == 88 || &t_Co == 256)
   call Color("PmenuThumb", "", s:selection, "")
 
   call Color("Question", s:orange, "", "")
-" QuickFixLine = { fg = colors.black, bg = colors.yellow, },
-" SpecialKey = { fg = colors.nontext, },
+  call Color("QuickFixLine", s:bg, s:yellow, "")
+  call Color("SpecialKey", "", "", "")
 
-" SpellBad = { fg = colors.bright_red, underline = true, },
-" SpellCap = { fg = colors.yellow, },
-" SpellLocal = { fg = colors.yellow, },
-" SpellRare = { fg = colors.yellow, },
-
-" TabLine = { fg = colors.comment, },
-" TabLineSel = { fg = colors.white, },
-" TabLineFill = { bg = colors.bg, },
-" Terminal = { fg = colors.white, bg = colors.black, },
-" Visual = { bg = colors.visual, },
-" VisualNOS = { fg = colors.visual, },
-" WarningMsg = { fg = colors.yellow, },
-" WildMenu = { fg = colors.black, bg = colors.white, },
+  call Color("TabLine", s:comment, "", "")
+  call Color("TabLineSel", s:comment, "", "")
+  call Color("TabLineFill", "", s:bg, "")
+  call Color("Terminal", s:fg, s:bg, "")
+  call Color("WarningMsg", s:yellow, "", "")
+  call Color("WildMenu", s:fg, s:bg, "")
 
 " -- TreeSitter
 " ['@error'] = { fg = colors.bright_red, },
@@ -131,7 +125,7 @@ if (has("gui_running") || &t_Co == 88 || &t_Co == 256)
 " ['@punctuation.bracket'] = { fg = colors.fg, },
 " ['@markup.list'] = { fg = colors.cyan, },
 "
-" ['@constant'] = { fg = colors.purple, },
+  call Color("@constant", s:purple, "", "")
 " ['@constant.builtin'] = { fg = colors.purple, },
 " ['@markup.link.label.symbol'] = { fg = colors.purple, },
 "
@@ -144,16 +138,16 @@ if (has("gui_running") || &t_Co == 88 || &t_Co == 256)
 " ['@number'] = { fg = colors.purple, },
 " ['@boolean'] = { fg = colors.purple, },
 " ['@number.float'] = { fg = colors.green, },
-" ['@annotation'] = { fg = colors.yellow, },
-" ['@attribute'] = { fg = colors.cyan, },
-" ['@module'] = { fg = colors.orange, },
+  call Color("@annotation", s:yellow, "", "")
+  call Color("@attribute", s:yellow, "", "")
+  call Color("@module", s:purple, "", "")
 "
 " ['@function.builtin'] = { fg = colors.cyan, },
 " ['@function'] = { fg = colors.green, },
 " ['@function.macro'] = { fg = colors.green, },
 " ['@variable.parameter'] = { fg = colors.orange, },
 " ['@variable.parameter.reference'] = { fg = colors.orange, },
-" ['@function.method'] = { fg = colors.green, },
+  call Color("@function.method", s:fg, "", "")
 " ['@variable.member'] = { fg = colors.orange, },
 " ['@property'] = { fg = colors.purple, },
 " ['@constructor'] = { fg = colors.cyan, },
@@ -164,18 +158,17 @@ if (has("gui_running") || &t_Co == 88 || &t_Co == 256)
 "
 " ['@keyword'] = { fg = colors.pink, },
 " ['@keyword.function'] = { fg = colors.cyan, },
-" ['@keyword.function.ruby'] = { fg = colors.pink, },
 " ['@keyword.operator'] = { fg = colors.pink, },
 " ['@operator'] = { fg = colors.pink, },
 " ['@keyword.exception'] = { fg = colors.purple, },
-" ['@type'] = { fg = colors.bright_cyan, },
+  call Color("@type", s:fg, "", "")
 " ['@type.builtin'] = { fg = colors.cyan, italic = true, },
 " ['@type.qualifier'] = { fg = colors.pink, },
 " ['@structure'] = { fg = colors.purple, },
 " ['@keyword.include'] = { fg = colors.pink, },
 "
-" ['@variable'] = { fg = colors.fg, },
-" ['@variable.builtin'] = { fg = colors.purple, },
+  call Color("@variable", s:fg, "", "")
+  call Color("@variable.builtin", s:orange, "", "")
 "
 " ['@markup'] = { fg = colors.orange, },
 " ['@markup.strong'] = { fg = colors.orange, bold = true, },     -- bold
@@ -200,23 +193,23 @@ if (has("gui_running") || &t_Co == 88 || &t_Co == 256)
 " ['@modifier'] = { fg = colors.cyan },
 " ['@regexp'] = { fg = colors.yellow },
 " ['@typeParameter'] = { fg = colors.cyan },
-" ['@decorator'] = { fg = colors.cyan },
+  call Color("@decorator", s:purple, "", "")
 "
 " -- LSP Semantic (0.9+)
-" ['@lsp.type.class'] = { fg = colors.cyan },
-" ['@lsp.type.enum'] = { fg = colors.cyan },
-" ['@lsp.type.decorator'] = { fg = colors.green },
-" ['@lsp.type.enumMember'] = { fg = colors.purple },
-" ['@lsp.type.function'] = { fg = colors.green, },
+  call Color("@lsp.type.class", s:fg, "", "")
+  call Color("@lsp.type.enum", s:fg, "", "")
+  call Color("@lsp.type.decorator", s:yellow, "", "")
+  call Color("@lsp.type.enumMember", s:fg, "", "")
+  call Color("@lsp.type.function", s:pink, "", "")
 " ['@lsp.type.interface'] = { fg = colors.cyan },
-" ['@lsp.type.macro'] = { fg = colors.cyan },
-" ['@lsp.type.method'] = { fg = colors.green, },
-" ['@lsp.type.namespace'] = { fg = colors.orange, },
-" ['@lsp.type.parameter'] = { fg = colors.orange, },
-" ['@lsp.type.property'] = { fg = colors.purple, },
+  call Color("@lsp.type.macro", "", s:red, "")
+  call Color("@lsp.type.method", s:fg, "", "")
+  call Color("@lsp.type.namespace", s:fg, "", "")
+  call Color("@lsp.type.parameter", s:fg, "", "")
+  call Color("@lsp.type.property", s:pink, "", "")
 " ['@lsp.type.struct'] = { fg = colors.cyan },
-" ['@lsp.type.type'] = { fg = colors.bright_cyan, },
-" ['@lsp.type.variable'] = { fg = colors.fg, },
+  call Color("@lsp.type.type", s:fg, "", "")
+  call Color("@lsp.type.variable", s:fg, "", "")
 
 " --  Diff
 call Color("diffAdded", s:green, "", "")

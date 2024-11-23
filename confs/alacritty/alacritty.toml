@@ -1,121 +1,39 @@
-# # Dracula theme for Alacritty
-# # https://draculatheme.com/alacritty
-# #
-# # Color palette
-# # https://spec.draculatheme.com
-# #
-# # Instructions
-# # https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd
-#
-# [colors.primary]
-#
-# background = "#282a36"
-# foreground = "#f8f8f2"
-# bright_foreground = "#ffffff"
-#
-# [colors.cursor]
-#
-# text = "#282a36"
-# cursor = "#f8f8f2"
-#
-# [colors.vi_mode_cursor]
-#
-# text = "CellBackground"
-# cursor = "CellForeground"
-#
-# [colors.selection]
-#
-# text = "CellForeground"
-# background = "#44475a"
-#
-# [colors.normal]
-#
-# black = "#21222c"
-# red = "#ff5555"
-# green = "#50fa7b"
-# yellow = "#f1fa8c"
-# blue = "#bd93f9"
-# magenta = "#ff79c6"
-# cyan = "#8be9fd"
-# white = "#f8f8f2"
-#
 # [colors.bright]
+# black = "#282a36"
+# blue = "#56A8F5"
+# cyan = "#2AACB8"
+# green = "#6AAB73"
+# magenta = "#CF8E6D"
+# red = "#F75464"
+# white = "#f7f7f7"
+# yellow = "#FFC66D"
 #
-# black = "#6272a4"
-# red = "#ff6e6e"
-# green = "#69ff94"
-# yellow = "#ffffa5"
-# blue = "#d6acff"
-# magenta = "#ff92df"
-# cyan = "#a4ffff"
-# white = "#ffffff"
-#
-# [colors.search.matches]
-#
-# foreground = "#44475a"
-# background = "#50fa7b"
-#
-# [colors.search.focused_match]
-#
-# foreground = "#44475a"
-# background = "#ffb86c"
-#
-# [colors.footer_bar]
-#
-# background = "#282a36"
-# foreground = "#f8f8f2"
-#
-# [colors.hints.start]
-#
-# foreground = "#282a36"
-# background = "#f1fa8c"
-#
-# [colors.hints.end]
-#
-# foreground = "#f1fa8c"
-# background = "#282a36"
-
-[colors.bright]
-black = "#636363"
-blue = "#7eaac7"
-cyan = "#86d3ce"
-green = "#87afaf"
-magenta = "#924653"
-red = "#af5f5f"
-white = "#f7f7f7"
-yellow = "#ebc17a"
-
-[colors.cursor]
-cursor = "#d9d9d9"
-text = "#2c2c2c"
-
-[colors.dim]
-black = "#232323"
-blue = "#556b79"
-cyan = "#5c8482"
-green = "#5e6547"
-magenta = "#6e4962"
-red = "#74423f"
-white = "#828282"
-yellow = "#8b7653"
+# [colors.dim]
+# black = "#636363"
+# blue = "#556b79"
+# cyan = "#5c8482"
+# green = "#5e6547"
+# magenta = "#6e4962"
+# red = "#74423f"
+# white = "#828282"
+# yellow = "#8b7653"
 
 [colors.normal]
 black = "#080808"
-blue = "#7eaac7"
-cyan = "#86d3ce"
-green = "#87afaf"
-magenta = "#924653"
-red = "#af5f5f"
-white = "#eeeeee"
-yellow = "#ebc17a"
+blue = "#56A8F5"
+cyan = "#2AACB8"
+green = "#6AAB73"
+red = "#F75464"
+white = "#BCBEC4"
+yellow = "#FFC66D"
 
 [colors.primary]
-background = "#080808"
-foreground = "#eee2de"
+background = "#1e1f22"
+foreground = "#BCBEC4"
 
-[colors.vi_mode_cursor]
-cursor = "CellForeground"
-text = "CellBackground"
+[colors.cursor]
+cursor = "#BCBEC4"
+text = "#1e1f22"
 
 ######################
 
