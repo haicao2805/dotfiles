@@ -39,19 +39,19 @@ return {
 		})
 
 		-- configure css server
-		lspconfig["cssls"].setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig["cssls"].setup({
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- configure dart server
-		lspconfig["dartls"].setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig["dartls"].setup({
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- configure tailwindcss server
-		lspconfig["tailwindcss"].setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig["tailwindcss"].setup({
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- configure tailwindcss server
 		-- lspconfig["pyright"].setup({
@@ -67,11 +67,11 @@ return {
 		-- 	capabilities = capabilities,
 		-- 	filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 		-- })
-    --
+		--
 		-- configure golang language server
-		lspconfig["gopls"].setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig["gopls"].setup({
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
