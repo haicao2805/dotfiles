@@ -1,4 +1,4 @@
 require("src.core")
 require("src.lazy")
 
-vim.cmd("colorscheme dark")
+vim.cmd("colorscheme gruvbox-material")

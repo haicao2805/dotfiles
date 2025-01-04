@@ -53,10 +53,9 @@ return {
 		-- 	capabilities = capabilities,
 		-- })
 
-		-- configure tailwindcss server
-		-- lspconfig["pyright"].setup({
-		-- 	capabilities = capabilities,
-		-- })
+		lspconfig["pyright"].setup({
+			capabilities = capabilities,
+		})
 
 		-- lspconfig["eslint"].setup({
 		-- 	capabilities = capabilities,
