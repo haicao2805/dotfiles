@@ -32,8 +32,8 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
 				["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+				-- ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+				-- ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({

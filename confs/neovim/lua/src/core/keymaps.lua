@@ -15,16 +15,12 @@ keymap.set(
 )
 
 -- Moving
-keymap.set("n", "<S-j>", "<C-e>")
-keymap.set("n", "<S-k>", "<C-y>")
 keymap.set("n", "<A-j>", ":m .+1<CR>==")
 keymap.set("n", "<A-k>", ":m .-2<CR>==")
 keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
-keymap.set("i", "jk", "<ESC>")
-keymap.set("i", "kj", "<ESC>")
 
 -- NvimTree
 keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>")
@@ -55,5 +51,3 @@ keymap.set("n", "<leader>D", ":Telescope diagnostics bufnr=0<CR>") -- show  diag
 keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action) -- see available code actions, in visual mode will apply to selection
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename) -- smart rename
 keymap.set("n", "<leader>er", vim.diagnostic.open_float) -- show diagnostics for line
-keymap.set("n", "m", ":lua vim.diagnostic.goto_next()<CR>") -- jump to next diagnostic in buffer
-keymap.set("n", "M", ":lua vim.diagnostic.goto_prev()<CR>") -- jump to previous diagnostic in buffer

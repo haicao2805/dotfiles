@@ -67,9 +67,9 @@ return {
 		-- })
 		--
 		-- configure golang language server
-		-- lspconfig["gopls"].setup({
-		-- 	capabilities = capabilities,
-		-- })
+		lspconfig["gopls"].setup({
+			capabilities = capabilities,
+		})
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({

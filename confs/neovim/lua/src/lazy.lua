@@ -14,5 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{ import = "src.plugins" },
 	{ import = "src.plugins.lsp" },
+	{ import = "src.plugins.ai" },
 	-- { dir = "~/Workspace/save/me/dark.nvim" },
 })

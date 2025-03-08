@@ -23,6 +23,15 @@ return {
 				typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
 				yaml = { require("formatter.filetypes.yaml").prettier },
 				dart = { require("formatter.filetypes.dart").dartformat },
+				python = {
+					function()
+						return {
+							exe = "black",
+							args = { "-" },
+							stdin = true,
+						}
+					end,
+				},
 			},
 		})
 	end,
