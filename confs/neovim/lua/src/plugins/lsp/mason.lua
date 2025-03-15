@@ -33,6 +33,7 @@ return {
 				-- "tailwindcss",
 				"lua_ls",
 				"pyright",
+				"gopls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -44,6 +45,9 @@ return {
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
 				"black", -- python formatter
+				"gofumpt", -- go formatter
+				"golines", -- go formatter
+				"goimports", -- go formatter
 			},
 		})
 	end,

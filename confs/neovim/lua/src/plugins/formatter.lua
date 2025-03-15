@@ -32,6 +32,15 @@ return {
 						}
 					end,
 				},
+				go = {
+					function()
+						return {
+							exe = "gofumpt", -- or use "gofmt" if preferred
+							args = {},
+							stdin = true,
+						}
+					end,
+				},
 			},
 		})
 	end,

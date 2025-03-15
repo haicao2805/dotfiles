@@ -69,6 +69,16 @@ return {
 		-- configure golang language server
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,
+			settings = {
+				gopls = {
+					analyses = {
+						unusedparams = true,
+					},
+					staticcheck = true,
+					gofumpt = true,
+				},
+			},
+			cmd = { vim.fn.stdpath("data") .. "/mason/bin/gopls" },
 		})
 
 		-- configure lua server (with special settings)
