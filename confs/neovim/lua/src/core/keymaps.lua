@@ -8,6 +8,8 @@ keymap.set("n", "<S-u>", ":redo<CR>")
 keymap.set("n", "<C-z>", ":undo<CR>")
 keymap.set("n", "<C-s>", ":wa<CR>")
 keymap.set("n", "ff", ":FormatWrite<CR>")
+keymap.set("i", "jk", "<Esc>")
+keymap.set("i", "kj", "<Esc>")
 keymap.set(
 	"n",
 	"<leader>io",

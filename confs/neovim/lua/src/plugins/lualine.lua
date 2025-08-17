@@ -10,7 +10,6 @@ return {
 				theme = "auto",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
-				globalstatus = true, -- Global statusline for all windows
 				always_divide_middle = true,
 				disabled_filetypes = { statusline = {}, winbar = {} },
 				ignore_focus = {},
@@ -18,12 +17,12 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_b = {},
 				lualine_c = {
-					{ "filename", path = 1, symbols = { modified = "  ", readonly = "  " } },
+					{ "filename", symbols = { modified = "  ", readonly = "  " } },
 				},
-				lualine_x = { "encoding", "fileformat", "filetype" },
-				lualine_y = { "progress" },
+				lualine_x = { "diff", "diagnostics" },
+				lualine_y = {},
 				lualine_z = { "location" },
 			},
 			inactive_sections = {
