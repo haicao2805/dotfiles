@@ -20,7 +20,7 @@ if ! $is_neovim_available; then
   exit 1
 else
   echo "NEOVIM is installed | Start configuring..."
-  ln -s "$BASE_FOLDER/confs/neovim" "$HOME/.config/nvim"
+  ln -s "$BASE_FOLDER/confs/nvim" "$HOME/.config/nvim"
 fi
 
 # ------------------------------------------------------------------
