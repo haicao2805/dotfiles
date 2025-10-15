@@ -57,7 +57,7 @@ return {
 		})
 
 		-- configure ruff language server (python)
-		vim.lsp.config("ruff", {
+		vim.lsp.config("pyright", {
 			capabilities = capabilities,
 		})
 
