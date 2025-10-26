@@ -1,0 +1,271 @@
+{
+ // ============================================================================
+ // VIM EXTENSION CONFIGURATION
+ // ============================================================================
+
+ "vim.leader": "<space>",
+ "vim.useSystemClipboard": true,
+ "vim.highlightedyank.enable": true,
+ "vim.highlightedyank.duration": 200,
+
+ // Use Ctrl keys in insert mode
+ "vim.useCtrlKeys": true,
+
+ // Handle keys that VS Code should handle
+ "vim.handleKeys": {
+  "<C-a>": false,
+  "<C-f>": false,
+  "<C-p>": false,
+  "<C-w>": false,
+  "<C-c>": false,
+  "<C-v>": false,
+  "<C-x>": false,
+  "<C-z>": false,
+  "<C-s>": false
+ },
+
+ // ============================================================================
+ // NORMAL MODE KEYBINDINGS
+ // ============================================================================
+
+ "vim.normalModeKeyBindingsNonRecursive": [
+  // Save all files
+  {
+   "before": ["<C-s>"],
+   "commands": ["workbench.action.files.saveAll"]
+  },
+
+  // Redo (matching your Neovim setup)
+  {
+   "before": ["<S-u>"],
+   "after": ["<C-r>"]
+  },
+
+  // Format document
+  {
+   "before": ["f", "f"],
+   "commands": ["editor.action.formatDocument"]
+  },
+
+  // Organize imports
+  {
+   "before": ["<leader>", "i", "o"],
+   "commands": ["editor.action.organizeImports"]
+  },
+
+  // Move lines up/down
+  {
+   "before": ["<A-j>"],
+   "commands": ["editor.action.moveLinesDownAction"]
+  },
+  {
+   "before": ["<A-k>"],
+   "commands": ["editor.action.moveLinesUpAction"]
+  },
+
+  // File explorer (matching NvimTree)
+  {
+   "before": ["<leader>", "e", "e"],
+   "commands": ["workbench.view.explorer"]
+  },
+  {
+   "before": ["<leader>", "e", "f"],
+   "commands": ["workbench.files.action.showActiveFileInExplorer"]
+  },
+
+  // Fuzzy find files (matching Telescope)
+  {
+   "before": ["<C-p>"],
+   "commands": ["workbench.action.quickOpen"]
+  },
+
+  // Search in workspace
+  {
+   "before": ["<leader>", "f", "w"],
+   "commands": ["workbench.action.findInFiles"]
+  },
+
+  // Search in current file
+  {
+   "before": ["<C-f>"],
+   "commands": ["actions.find"]
+  },
+
+  // Git commands (matching Telescope git functions)
+  {
+   "before": ["<leader>", "g", "f"],
+   "commands": ["workbench.action.quickOpen"]
+  },
+  {
+   "before": ["<leader>", "g", "c"],
+   "commands": ["gitlens.showCommitsView"]
+  },
+  {
+   "before": ["<leader>", "g", "s", "t"],
+   "commands": ["workbench.view.scm"]
+  },
+  {
+   "before": ["<leader>", "g", "b", "r"],
+   "commands": ["git.branchFrom"]
+  },
+
+  // LSP/IDE features
+  {
+   "before": ["g", "D"],
+   "commands": ["editor.action.revealDeclaration"]
+  },
+  {
+   "before": ["g", "d"],
+   "commands": ["editor.action.revealDefinition"]
+  },
+  {
+   "before": ["g", "R"],
+   "commands": ["references-view.findReferences"]
+  },
+  {
+   "before": ["g", "i"],
+   "commands": ["editor.action.goToImplementation"]
+  },
+  {
+   "before": ["g", "t"],
+   "commands": ["editor.action.goToTypeDefinition"]
+  },
+  {
+   "before": ["g", "h"],
+   "commands": ["editor.action.showHover"]
+  },
+  {
+   "before": ["<leader>", "D"],
+   "commands": ["workbench.actions.view.problems"]
+  },
+  {
+   "before": ["<leader>", "c", "a"],
+   "commands": ["editor.action.quickFix"]
+  },
+  {
+   "before": ["<leader>", "r", "n"],
+   "commands": ["editor.action.rename"]
+  },
+  {
+   "before": ["<leader>", "e", "r"],
+   "commands": ["editor.action.showHover"]
+  }
+ ],
+
+ // ============================================================================
+ // VISUAL MODE KEYBINDINGS
+ // ============================================================================
+
+ "vim.visualModeKeyBindingsNonRecursive": [
+  // Copy to system clipboard
+  {
+   "before": ["<C-c>"],
+   "after": ["\"+", "y"]
+  },
+
+  // Move lines up/down in visual mode
+  {
+   "before": ["<A-j>"],
+   "commands": ["editor.action.moveLinesDownAction"]
+  },
+  {
+   "before": ["<A-k>"],
+   "commands": ["editor.action.moveLinesUpAction"]
+  },
+
+  // Code actions on selection
+  {
+   "before": ["<leader>", "c", "a"],
+   "commands": ["editor.action.quickFix"]
+  }
+ ],
+
+ // ============================================================================
+ // INSERT MODE KEYBINDINGS
+ // ============================================================================
+
+ "vim.insertModeKeyBindings": [
+  // Move lines up/down in insert mode
+  {
+   "before": ["<A-j>"],
+   "commands": ["editor.action.moveLinesDownAction"]
+  },
+  {
+   "before": ["<A-k>"],
+   "commands": ["editor.action.moveLinesUpAction"]
+  }
+ ],
+
+ // ============================================================================
+ // EDITOR SETTINGS (matching your Neovim config)
+ // ============================================================================
+
+ "editor.lineNumbers": "relative",
+ "editor.cursorBlinking": "solid",
+ "editor.cursorSurroundingLines": 8,
+ "editor.formatOnSave": false,
+ "editor.tabSize": 2,
+ "editor.insertSpaces": true,
+ "editor.autoIndent": "full",
+ "editor.smartIndent": true,
+ "editor.wordWrap": "off",
+ "editor.rulers": [],
+ "editor.renderWhitespace": "selection",
+ "editor.scrollBeyondLastLine": true,
+ "editor.bracketPairColorization.enabled": true,
+ "editor.guides.bracketPairs": true,
+
+ // ============================================================================
+ // WORKBENCH SETTINGS
+ // ============================================================================
+
+ "workbench.editor.enablePreview": false,
+ "workbench.list.automaticKeyboardNavigation": false,
+ "workbench.startupEditor": "none",
+
+ // ============================================================================
+ // SEARCH SETTINGS (matching your Neovim config)
+ // ============================================================================
+
+ "search.smartCase": true,
+ "search.useIgnoreFiles": true,
+
+ // ============================================================================
+ // FILES SETTINGS
+ // ============================================================================
+
+ "files.autoSave": "off",
+ "files.trimTrailingWhitespace": true,
+ "files.insertFinalNewline": true,
+
+ // ============================================================================
+ // TERMINAL SETTINGS
+ // ============================================================================
+
+ "terminal.integrated.fontFamily": "monospace",
+ "terminal.integrated.fontSize": 14,
+
+ // ============================================================================
+ // OTHER SETTINGS
+ // ============================================================================
+
+ "explorer.confirmDelete": false,
+ "explorer.confirmDragAndDrop": false,
+"window.zoomLevel": 0,
+"chat.instructionsFilesLocations": {
+  ".github/instructions": true,
+  "/tmp/postman-collections-post-response.instructions.md": true,
+  "/tmp/postman-collections-pre-request.instructions.md": true,
+  "/tmp/postman-folder-post-response.instructions.md": true,
+  "/tmp/postman-folder-pre-request.instructions.md": true,
+  "/tmp/postman-http-request-post-response.instructions.md": true,
+  "/tmp/postman-http-request-pre-request.instructions.md": true
+},
+"workbench.colorTheme": "Visual Studio Dark",
+"[dockercompose]": {
+  "editor.defaultFormatter": "ms-azuretools.vscode-containers"
+},
+"[typescript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+}

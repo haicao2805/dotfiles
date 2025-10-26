@@ -1,0 +1,56 @@
+[
+ // ============================================================================
+ // VIM MODE KEYBINDINGS (when Vim extension is active)
+ // ============================================================================
+
+ // Save all in normal mode
+ {
+  "key": "ctrl+s",
+  "command": "workbench.action.files.saveAll",
+  "when": "vim.mode == 'Normal'"
+ },
+
+ // ============================================================================
+ // SPLIT NAVIGATION (matching Neovim split behavior)
+ // ============================================================================
+
+ {
+  "key": "ctrl+h",
+  "command": "workbench.action.navigateLeft",
+  "when": "vim.mode == 'Normal'"
+ },
+ {
+  "key": "ctrl+l",
+  "command": "workbench.action.navigateRight",
+  "when": "vim.mode == 'Normal'"
+ },
+ {
+  "key": "ctrl+k",
+  "command": "workbench.action.navigateUp",
+  "when": "vim.mode == 'Normal'"
+ },
+ {
+  "key": "ctrl+j",
+  "command": "workbench.action.navigateDown",
+  "when": "vim.mode == 'Normal'"
+ },
+
+ // ============================================================================
+ // TERMINAL TOGGLE
+ // ============================================================================
+
+ {
+  "key": "ctrl+`",
+  "command": "workbench.action.terminal.toggleTerminal"
+ },
+
+ // ============================================================================
+ // QUICK FIXES
+ // ============================================================================
+
+ {
+  "key": "ctrl+.",
+  "command": "editor.action.quickFix",
+  "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+ }
+]

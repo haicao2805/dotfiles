@@ -1,116 +1,79 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# ============================================================================
+# OH-MY-ZSH CONFIGURATION
+# ============================================================================
 
-# Path to your oh-my-zsh installation.
+# Oh-My-Zsh installation path
 export ZSH="$HOME/.oh-my-zsh"
-export WORKSPACE="$HOME/Workspace"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Theme configuration
 ZSH_THEME="robbyrussell"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Oh-My-Zsh plugins
 plugins=(
   git
   zsh-autosuggestions
 )
 
+# Load Oh-My-Zsh
 source $ZSH/oh-my-zsh.sh
 
-append_path () {
+# ============================================================================
+# ENVIRONMENT VARIABLES
+# ============================================================================
+
+# General environment
+export WORKSPACE="$HOME/Workspaces"
+# export LANG=en_US.UTF-8
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# Android SDK
+export ANDROID_HOME=$HOME/Android/Sdk
+
+# ============================================================================
+# HELPER FUNCTIONS
+# ============================================================================
+
+# Append to PATH (skips if inside tmux to avoid duplicates)
+append_path() {
   if [ ! -z $TMUX ]; then
     return
   fi
-
   export PATH="$PATH:$1"
 }
 
-# User configuration
+# ============================================================================
+# PATH CONFIGURATION
+# ============================================================================
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+# Custom functions path
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+# Local binaries
+export PATH="$HOME/.local/bin:$PATH"
+
+# Development tools
 append_path "/usr/bin/flutter/bin"
 append_path "/usr/local/go/bin"
+append_path "$ANDROID_HOME/emulator"
+append_path "$ANDROID_HOME/platform-tools"
 
-export ANDROID_HOME=$HOME/Android/Sdk
-append_path $ANDROID_HOME/emulator
-append_path $ANDROID_HOME/platform-tools
+# ============================================================================
+# LANGUAGE VERSION MANAGERS
+# ============================================================================
 
-# nvim alias
-alias nv="nvim ."
+# Node Version Manager (NVM)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Other alias
-alias ws="cd ~/Workspace/save && tmux"
+# Python Version Manager (pyenv)
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+# ============================================================================
+# PACKAGE MANAGERS
+# ============================================================================
 
 # pnpm
 export PNPM_HOME="/home/haicao/.local/share/pnpm"
@@ -118,13 +81,45 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
-. "$HOME/.local/bin/env"
-
-# bun completions
-[ -s "/home/haicao/.bun/_bun" ] && source "/home/haicao/.bun/_bun"
-
-# bun
+# Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "/home/haicao/.bun/_bun" ] && source "/home/haicao/.bun/_bun"
+
+# ============================================================================
+# ALIASES
+# ============================================================================
+
+# Editor
+alias nv="nvim ."
+
+# Workspace navigation
+alias ws="cd ~/Workspaces/save && tmux"
+
+# ============================================================================
+# ADDITIONAL CONFIGURATIONS
+# ============================================================================
+
+# Load local environment configurations
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# ============================================================================
+# OH-MY-ZSH OPTIONS (Uncomment to enable)
+# ============================================================================
+
+# CASE_SENSITIVE="true"
+# HYPHEN_INSENSITIVE="true"
+# DISABLE_MAGIC_FUNCTIONS="true"
+# DISABLE_LS_COLORS="true"
+# DISABLE_AUTO_TITLE="true"
+# ENABLE_CORRECTION="true"
+# COMPLETION_WAITING_DOTS="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Auto-update behavior:
+# zstyle ':omz:update' mode disabled
+# zstyle ':omz:update' mode auto
+# zstyle ':omz:update' mode reminder
+# zstyle ':omz:update' frequency 13
