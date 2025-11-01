@@ -267,5 +267,6 @@
 },
 "[typescript]": {
   "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
+},
+"git.openRepositoryInParentFolders": "always"
 }
