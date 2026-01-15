@@ -30,7 +30,7 @@ return {
 				"ts_ls",
 				-- "html",
 				-- "cssls",
-				-- "tailwindcss",
+				"tailwindcss",
 				"lua_ls",
 				"pyright",
 				"gopls",
