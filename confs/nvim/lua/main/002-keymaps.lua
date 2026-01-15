@@ -42,6 +42,7 @@ keymap.set("n", "<leader>gbr", ":Telescope git_branches<CR>")
 keymap.set("n", "gD", vim.lsp.buf.declaration) -- go to declaration
 keymap.set("n", "gR", ":Telescope lsp_references<CR>") -- show definition, references
 keymap.set("n", "gd", ":Telescope lsp_definitions<CR>") -- show lsp definitions
+keymap.set("n", "gdi", vim.lsp.buf.definition) -- fallback: go to definition (without telescope)
 keymap.set("n", "gi", ":Telescope lsp_implementations<CR>") -- show lsp implementations
 keymap.set("n", "gt", ":Telescope lsp_type_definitions<CR>") -- show lsp type definitions
 keymap.set("n", "gh", vim.lsp.buf.hover) -- show documentation for what is under cursor

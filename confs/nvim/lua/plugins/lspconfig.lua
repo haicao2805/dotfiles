@@ -75,5 +75,23 @@ return {
 			},
 			cmd = { vim.fn.stdpath("data") .. "/mason/bin/gopls" },
 		})
+
+		-- configure c sharp language server
+		vim.lsp.config("omnisharp", {
+			capabilities = capabilities,
+			cmd = {
+				vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp",
+				"--languageserver",
+				"--hostPID",
+				tostring(vim.fn.getpid()),
+			},
+			root_dir = vim.fs.dirname(vim.fs.find({
+				"*.sln",
+				"*.csproj",
+				"omnisharp.json",
+				"function.json",
+				".git",
+			}, { upward = true })[1]),
+		})
 	end,
 }
