@@ -123,3 +123,8 @@ alias ws="cd ~/Workspaces/save && tmux"
 # zstyle ':omz:update' mode auto
 # zstyle ':omz:update' mode reminder
 # zstyle ':omz:update' frequency 13
+GOOGLE_API_KEY="AIzaSyDL9ARvKlJ2Mp8l2ZetyaNJqxN8BG6FkKs"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

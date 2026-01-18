@@ -41,7 +41,17 @@ return {
 						}
 					end,
 				},
+				java = {
+					-- Use JDTLS LSP formatting
+					function()
+						vim.lsp.buf.format({ async = false })
+						return {}
+					end,
+				},
 			},
 		})
+
+		-- Keybinding for manual formatting
+		vim.keymap.set("n", "<leader>fm", ":Format<CR>", { desc = "Format file" })
 	end,
 }
