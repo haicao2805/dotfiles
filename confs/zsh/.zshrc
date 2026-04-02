@@ -1,3 +1,10 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/home/haicao/.oh-my-zsh/custom/completions" $fpath)
+autoload -Uz compinit
+compinit
+# OPENSPEC:END
+
 # ============================================================================
 # OH-MY-ZSH CONFIGURATION
 # ============================================================================
@@ -128,3 +135,6 @@ GOOGLE_API_KEY="AIzaSyDL9ARvKlJ2Mp8l2ZetyaNJqxN8BG6FkKs"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# opencode
+export PATH=/home/haicao/.opencode/bin:$PATH

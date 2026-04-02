@@ -1,19 +1,29 @@
 return {
-	"github/copilot.vim",
-	event = "VimEnter",
-
-	config = function()
-		vim.g.copilot_no_tab_map = true
-		vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-		vim.api.nvim_set_keymap("i", "<C-K>", "copilot#Previous()", { silent = true, expr = true })
-		vim.api.nvim_set_keymap("i", "<C-L>", "copilot#Next()", { silent = true, expr = true })
-		vim.api.nvim_set_keymap("i", "<C-H>", "copilot#Dismiss()", { silent = true, expr = true })
-		-- vim.g.copilot_filetypes = {
-		-- 	["*"] = true,
-		-- 	["markdown"] = false,
-		-- 	["help"] = false,
-		-- 	["NvimTree"] = false,
-		-- 	["TelescopePrompt"] = false,
-		-- }
-	end,
+  "zbirenbaum/copilot.lua",
+  event = "InsertEnter",
+  cmd = "Copilot",
+  config = function()
+    require("copilot").setup({
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-J>",
+          next = "<C-L>",
+          prev = "<C-K>",
+          dismiss = "<C-H>",
+        },
+      },
+      panel = {
+        enabled = true,
+      },
+      -- filetypes = {
+      --   ["*"] = true,
+      --   markdown = false,
+      --   help = false,
+      --   NvimTree = false,
+      --   TelescopePrompt = false,
+      -- },
+    })
+  end,
 }

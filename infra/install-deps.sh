@@ -9,7 +9,9 @@ sudo apt -y upgrade
 
 echo 'Install dependencies...'
 sudo apt install -y build-essential ca-certificates gnupg
-sudo apt install -y zsh git wget htop curl nginx
+sudo apt install -y zip unzip
+sudo apt install -y zsh git wget htop curl
+sudo apt install -y nginx certbot python3-certbot-nginx
 sudo apt install -y wireguard resolvconf
 
 echo "================================================================================"
