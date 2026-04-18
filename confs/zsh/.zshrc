@@ -13,7 +13,7 @@ compinit
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme configuration
-ZSH_THEME="robbyrussell"
+ZSH_THEME="devglow"
 
 # Oh-My-Zsh plugins
 plugins=(

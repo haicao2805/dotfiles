@@ -33,6 +33,9 @@ keymap.set("n", "<leader>fe", function()
 end)
 keymap.set("n", "<leader>fw", ":Telescope live_grep<CR>")
 keymap.set("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>")
+keymap.set("n", "<leader>fm", function()
+	require("telescope.builtin").lsp_document_symbols({ symbols = { "method", "function" } })
+end)
 keymap.set("n", "<leader>gf", ":Telescope git_files<CR>")
 keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>")
 keymap.set("n", "<leader>gst", ":Telescope git_status<CR>")
@@ -40,7 +43,7 @@ keymap.set("n", "<leader>gbr", ":Telescope git_branches<CR>")
 
 -- -- LSP
 keymap.set("n", "gD", vim.lsp.buf.declaration) -- go to declaration
-keymap.set("n", "gR", ":Telescope lsp_references<CR>") -- show definition, references
+keymap.set("n", "gr", ":Telescope lsp_references<CR>") -- show definition, references
 keymap.set("n", "gd", ":Telescope lsp_definitions<CR>") -- show lsp definitions
 keymap.set("n", "gdi", vim.lsp.buf.definition) -- fallback: go to definition (without telescope)
 keymap.set("n", "gi", ":Telescope lsp_implementations<CR>") -- show lsp implementations

@@ -272,5 +272,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode"
 },
 "git.openRepositoryInParentFolders": "always",
-"chat.viewSessions.orientation": "stacked"
+"chat.viewSessions.orientation": "stacked",
+"makefile.configureOnOpen": true
 }
