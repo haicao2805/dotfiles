@@ -32,6 +32,8 @@ export const MyEntityPermissions = {
 
 ## Route Config (definitions.ts)
 
+The `MyEntityRoute` object is a typed registry of endpoint configs. Cast the whole map `as const` so TypeScript preserves literal types — this powers IDE autocomplete on `MyEntityRoute.X` at the call site.
+
 ```typescript
 export const MyEntityRoute = {
   CUSTOM: {
@@ -47,8 +49,11 @@ export const MyEntityRoute = {
     },
     responses: jsonResponse({ schema: MyResponseSchema }),
   } satisfies IAuthRouteConfig,
-};
+} as const;
 ```
+
+- Each entry uses `satisfies IAuthRouteConfig` for shape validation.
+- The outer object ends with `as const` for literal-type preservation and IDE autocomplete.
 
 ## Controller
 
@@ -73,9 +78,8 @@ export class MyEntityController extends _Controller {
   }
 
   override binding(): ValueOrPromise<void> {
-    this.bindRoute({
-      configs: { ...MyEntityRoute.CUSTOM },
-    }).to({
+    // POST - /my-entities/custom
+    this.bindRoute({ configs: MyEntityRoute.CUSTOM }).to({
       handler: async context => {
         const body = context.req.valid<TMyRequest>('json');
         const rs = await this._myService.customAction({ data: body });
@@ -85,3 +89,10 @@ export class MyEntityController extends _Controller {
   }
 }
 ```
+
+## Rules
+
+- Pass `MyEntityRoute.X` **directly** to `configs:` — never spread (`{ ...MyEntityRoute.X }`). Spreading widens types to `IAuthRouteConfig` and breaks autocomplete on `path`/`method`.
+- Above every `bindRoute(...)` call, write a one-line comment in the form `// METHOD - /full/path` (uppercase HTTP verb, full path including the controller's `basePath`). This makes the file scannable as an endpoint index.
+- Cast each `MyEntityRoute` registry `as const` so the literal types of `method`, `path`, etc. survive into call sites.
+- Every endpoint config must use `satisfies IAuthRouteConfig` to enforce the shape without losing literal types.

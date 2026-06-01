@@ -53,3 +53,9 @@ keymap.set("n", "<leader>D", ":Telescope diagnostics bufnr=0<CR>") -- show  diag
 keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action) -- see available code actions, in visual mode will apply to selection
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename) -- smart rename
 keymap.set("n", "<leader>er", vim.diagnostic.open_float) -- show diagnostics for line
+
+-- -- DiffView
+keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>")
+keymap.set("n", "<leader>gq", ":DiffviewClose<CR>")
+keymap.set("n", "<leader>gh", ":DiffviewFileHistory %<CR>")
+keymap.set("n", "<leader>gH", ":DiffviewFileHistory<CR>")
