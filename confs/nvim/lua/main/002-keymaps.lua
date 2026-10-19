@@ -5,7 +5,7 @@ keymap.set("v", "<C-c>", '"+y')
 keymap.set("n", "<S-u>", ":redo<CR>")
 keymap.set("n", "<C-z>", ":undo<CR>")
 keymap.set("n", "<C-s>", ":wa<CR>")
-keymap.set("n", "ff", ":FormatWrite<CR>")
+keymap.set("n", "ff", ":w<CR>") -- save; conform formats on save
 keymap.set(
 	"n",
 	"<leader>io",

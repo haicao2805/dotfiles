@@ -39,11 +39,50 @@ return {
       },
     }
 
-    -- TypeScript/JavaScript (using bun-installed typescript-language-server)
+    -- Find node_modules/.bin/<bin> nearest to `root` (walks up, supports hoisted monorepos)
+    local function find_node_bin(root, bin)
+      for dir in vim.fs.parents(root .. "/_") do
+        local path = dir .. "/node_modules/.bin/" .. bin
+        if vim.uv.fs_stat(path) then
+          return path
+        end
+      end
+      return bin
+    end
+
+    -- TypeScript/JavaScript (project-local typescript-language-server, fallback to $PATH)
     vim.lsp.config["ts_ls"] = {
-      cmd = { "typescript-language-server", "--stdio" },
+      cmd = function(dispatchers, config)
+        local bin = find_node_bin(config.root_dir or vim.uv.cwd(), "typescript-language-server")
+        return vim.lsp.rpc.start({ bin, "--stdio" }, dispatchers)
+      end,
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
       root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+      capabilities = capabilities,
+      init_options = {
+        hostInfo = "neovim",
+        maxTsServerMemory = 4096,
+        preferences = {
+          importModuleSpecifierPreference = "non-relative",
+          includePackageJsonAutoImports = "on",
+          preferTypeOnlyAutoImports = true,
+        },
+      },
+    }
+
+    -- Oxlint (only starts when the project has an oxlint config and the binary is found)
+    vim.lsp.config["oxlint"] = {
+      cmd = function(dispatchers, config)
+        local bin = find_node_bin(config.root_dir or vim.uv.cwd(), "oxlint")
+        return vim.lsp.rpc.start({ bin, "--lsp" }, dispatchers)
+      end,
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+      root_dir = function(bufnr, on_dir)
+        local root = vim.fs.root(bufnr, { ".oxlintrc.json", "oxlint.config.ts", ".configs" })
+        if root and vim.fn.executable(find_node_bin(root, "oxlint")) == 1 then
+          on_dir(root)
+        end
+      end,
       capabilities = capabilities,
     }
 
@@ -71,7 +110,7 @@ return {
     -- }
 
     -- Enable LSP servers
-    vim.lsp.enable({ "lua_ls", "ts_ls", "tailwindcss",
+    vim.lsp.enable({ "lua_ls", "ts_ls", "oxlint", "tailwindcss",
       -- "rust_analyzer"
     })
   end,
