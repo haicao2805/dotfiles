@@ -55,7 +55,24 @@ return {
       capabilities = capabilities,
     }
 
+    -- -- Rust
+    -- vim.lsp.config["rust_analyzer"] = {
+    --   cmd = { "rust-analyzer" },
+    --   filetypes = { "rust" },
+    --   root_markers = { "Cargo.toml", "Cargo.lock", "rust-project.json", ".git" },
+    --   capabilities = capabilities,
+    --   settings = {
+    --     ["rust-analyzer"] = {
+    --       cargo = { allFeatures = true },
+    --       checkOnSave = true,
+    --       check = { command = "clippy" },
+    --     },
+    --   },
+    -- }
+
     -- Enable LSP servers
-    vim.lsp.enable({ "lua_ls", "ts_ls", "tailwindcss" })
+    vim.lsp.enable({ "lua_ls", "ts_ls", "tailwindcss",
+      -- "rust_analyzer"
+    })
   end,
 }

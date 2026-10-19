@@ -273,5 +273,10 @@
 },
 "git.openRepositoryInParentFolders": "always",
 "makefile.configureOnOpen": true,
-"chat.viewSessions.orientation": "stacked"
+"chat.viewSessions.orientation": "stacked",
+"claudeCode.preferredLocation": "panel",
+"claudeCode.hideOnboarding": true,
+"[typescriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
 }

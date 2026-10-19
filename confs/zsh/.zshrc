@@ -104,6 +104,9 @@ alias nv="nvim ."
 # Workspace navigation
 alias ws="cd ~/Workspaces/save && tmux"
 
+# Kubectk
+alias k="kubectl"
+
 # ============================================================================
 # ADDITIONAL CONFIGURATIONS
 # ============================================================================
@@ -138,3 +141,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # opencode
 export PATH=/home/haicao/.opencode/bin:$PATH
+
+# >>> omp profile alias: omp_bana >>>
+omp_bana() {
+    command '/home/haicao/.bun/bin/bun' '/home/haicao/.bun/install/global/node_modules/@oh-my-pi/pi-coding-agent/dist/cli.js' --profile=omp_bana "$@"
+}
+# <<< omp profile alias: omp_bana <<<

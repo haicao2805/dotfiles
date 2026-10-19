@@ -46,6 +46,7 @@ return {
 				markdown = { prettier },
 				sh = { require("formatter.filetypes.sh").shfmt },
 				sql = { require("formatter.filetypes.sql").pgformat },
+				rust = { require("formatter.filetypes.rust").rustfmt },
 				typescript = { prettier },
 				typescriptreact = { prettier },
 				yaml = { prettier },

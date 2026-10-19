@@ -1,6 +1,6 @@
 # Throwing Errors
 
-Use `getError` from `@nx/core` for every thrown HTTP error. The `messageCode` carries the i18n key the FE uses to localise the error.
+Use `getError` for every thrown HTTP error. The `messageCode` carries the i18n key the FE uses to localise the error.
 
 ## Key format
 
@@ -22,49 +22,67 @@ Each package defines its errors under:
 
 ```
 packages/<pkg>/src/errors/
-  ├── <domain>.errors.ts   # one file per domain
+  ├── <domain>.error.ts    # one file per domain
   └── index.ts             # barrel
 ```
 
 ## Definition file
 
 ```typescript
-// packages/identity/src/errors/auth.errors.ts
-import { ErrorCategories, type TErrorDefinition } from '@nx/core';
-import { HTTP } from '@venizia/ignis-helpers';
+// packages/identity/src/errors/auth.error.ts
+import { type TLocalizedErrorDefinition } from '@nx/core';
+import { ErrorScopes, HTTP, type TRegisterErrors } from '@venizia/ignis-helpers';
 
 export const AuthErrors = {
-  SIGN_IN_IDENTIFIER_NOT_FOUND: {
-    key: 'server.identity.auth.sign_in.identifier_not_found',
-    statusCode: HTTP.ResultCodes.RS_4.NotFound,
-    category: ErrorCategories.AUTH,
-    message: 'Account not found with the given identifier.',
-    description: 'Sign-in attempt with an identifier that does not exist.',
+  SIGN_IN_ACCOUNT_LOCKED: {
+    message: {
+      code: 'server.identity.auth.sign_in.account_locked',
+      text: 'Account is temporarily locked. Please try again in %{retryAfterMinutes} minutes.',
+    },
+    locale: {
+      en: 'Account is temporarily locked. Please try again in %{retryAfterMinutes} minutes.',
+      vi: 'Tài khoản tạm thời bị khoá. Vui lòng thử lại sau %{retryAfterMinutes} phút.',
+    },
+    statusCode: HTTP.ResultCodes.RS_4.TooManyRequests,
+    category: ErrorScopes.BUSINESS,
+    description: 'Too many consecutive wrong-password attempts - lockout record still active.',
   },
-  // ...
-} as const satisfies Record<string, TErrorDefinition>;
+} as const satisfies Record<string, TLocalizedErrorDefinition>;
 
-declare module '@nx/core' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-  interface IErrorKeyRegistry
-    extends Record<(typeof AuthErrors)[keyof typeof AuthErrors]['key'], true> {}
+declare module '@venizia/ignis-helpers' {
+  interface IErrorKeyRegistry extends TRegisterErrors<typeof AuthErrors> {}
 }
 ```
 
-### `TErrorDefinition` fields
+Files are `<domain>.error.ts` (singular). A new error is one edit: code + `text` + `locale.en`
++ `locale.vi`.
+
+### Fields
 
 | Field | Required | Notes |
 |-------|----------|-------|
-| `key` | ✔ | Full dot-notated key. |
+| `message.code` | ✔ | Full dot-notated key. |
+| `message.text` | ✔ | English default used at runtime. |
+| `locale.en` / `locale.vi` | ✔ in `packages/*` | `en` must equal `text`; `vi` is the user-facing copy. |
 | `statusCode` | ✔ | Default HTTP status. |
-| `message` | ✔ | English default — used when call site doesn't override. |
-| `messageArgs` | — | Key-value args for message templating. |
-| `category` | — | `AUTH` / `VALIDATION` / `BUSINESS` / `SYSTEM` / `INTEGRATION`. |
-| `description` | — | Context for the translator; surfaced in the CSV export. |
+| `category` | — | `ErrorScopes.*`. |
+| `description` | — | Context for translators and reviewers. |
 
-### Module augmentation
+`third-parties/*` cannot import `@nx/core`: keep `TErrorDefinition` from
+`@venizia/ignis-helpers` and no `locale`.
 
-The `declare module '@nx/core'` block feeds every key into the global `IErrorKeyRegistry` interface, which powers LSP autocomplete on `messageCode`. The block must appear in the same file as the `as const` map so both ship together.
+### Syncing copy to the FE
+
+Run after adding or editing an error, then commit the locale diff:
+
+```bash
+make i18n-errors-write-<pkg>        # or: bun scripts/i18n/errors-sync.ts --write --service <pkg>
+```
+
+- Insert-only: the FE `en.ts` / `vi.ts` wins on conflict. To make the server text replace it, pass
+  `ARGS="--override <key>"` (also `--override-prefix`, `--override-all`).
+- `vi` may drop a placeholder that `en` has, but must not use one `en` lacks.
+- Never hand-edit `auroras/kits/core/src/locales/*.ts` for `server.*` keys; use the script.
 
 ## Call sites — two overload shapes
 
