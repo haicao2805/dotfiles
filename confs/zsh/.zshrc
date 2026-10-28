@@ -147,3 +147,5 @@ omp_bana() {
     command '/home/haicao/.bun/bin/bun' '/home/haicao/.bun/install/global/node_modules/@oh-my-pi/pi-coding-agent/dist/cli.js' --profile=omp_bana "$@"
 }
 # <<< omp profile alias: omp_bana <<<
+
+alias kbana='KUBECONFIG=~/Documents/haicao-kubeconfig.yaml kubectl'

@@ -77,10 +77,26 @@ return {
         return vim.lsp.rpc.start({ bin, "--lsp" }, dispatchers)
       end,
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+      -- Root = nearest dir whose .configs/ holds an oxlint config (each package has its own)
       root_dir = function(bufnr, on_dir)
-        local root = vim.fs.root(bufnr, { ".oxlintrc.json", "oxlint.config.ts", ".configs" })
+        local root = vim.fs.root(bufnr, function(_, path)
+          return vim.uv.fs_stat(path .. "/.configs/oxlint.config.mts") ~= nil
+            or vim.uv.fs_stat(path .. "/.configs/oxlint.config.ts") ~= nil
+            or vim.uv.fs_stat(path .. "/.oxlintrc.json") ~= nil
+        end)
         if root and vim.fn.executable(find_node_bin(root, "oxlint")) == 1 then
           on_dir(root)
+        end
+      end,
+      -- Pass the config explicitly (like `oxlint -c`) so it counts as the root config
+      before_init = function(params, config)
+        local root = config.root_dir
+        for _, rel in ipairs({ ".configs/oxlint.config.mts", ".configs/oxlint.config.ts" }) do
+          if vim.uv.fs_stat(root .. "/" .. rel) then
+            params.initializationOptions = { configPath = root .. "/" .. rel }
+            config.settings = { configPath = root .. "/" .. rel }
+            break
+          end
         end
       end,
       capabilities = capabilities,
