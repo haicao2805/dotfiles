@@ -1,6 +1,6 @@
 # OPENSPEC:START
 # OpenSpec shell completions configuration
-fpath=("/home/haicao/.oh-my-zsh/custom/completions" $fpath)
+fpath=("$HOME/.oh-my-zsh/custom/completions" $fpath)
 autoload -Uz compinit
 compinit
 # OPENSPEC:END
@@ -79,7 +79,7 @@ export NVM_DIR="$HOME/.nvm"
 # Python Version Manager (pyenv)
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - bash)"
+eval "$(pyenv init - zsh)"
 
 # ============================================================================
 # PACKAGE MANAGERS
@@ -88,7 +88,7 @@ eval "$(pyenv init - bash)"
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "/home/haicao/.bun/_bun" ] && source "/home/haicao/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # ============================================================================
 # ALIASES
@@ -100,7 +100,7 @@ alias nv="nvim ."
 # Workspace navigation
 alias ws="cd ~/Workspaces/save && tmux"
 
-# Kubectk
+# Kubectl
 alias k="kubectl"
 
 # ============================================================================
