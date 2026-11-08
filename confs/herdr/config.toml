@@ -1,0 +1,18 @@
+onboarding = false
+
+[ui]
+agent_panel_sort = "spaces"
+
+[theme]
+name = "dracula"
+auto_switch = false
+
+[keys]
+# Same keys as tmux: prefix (ctrl+b) then \ splits side by side, then - stacks top/bottom
+split_vertical = "prefix+backslash"
+split_horizontal = "prefix+minus"
+# Move between panes: ctrl+b then h/j/k/l (herdr default)
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
