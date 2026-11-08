@@ -1,1 +1,4 @@
 .copilot
+
+# Local secrets (API keys, OAuth tokens) that must never be committed
+tokens.env

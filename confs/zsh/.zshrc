@@ -36,6 +36,9 @@ export WORKSPACE="$HOME/Workspaces"
 # Android SDK
 export ANDROID_HOME=$HOME/Android/Sdk
 
+# Secrets (API keys, OAuth tokens). Lives outside the repo: chmod 600, never commit.
+[ -f "$HOME/.config/claude/tokens.env" ] && source "$HOME/.config/claude/tokens.env"
+
 # ============================================================================
 # HELPER FUNCTIONS
 # ============================================================================
@@ -82,13 +85,6 @@ eval "$(pyenv init - bash)"
 # PACKAGE MANAGERS
 # ============================================================================
 
-# pnpm
-export PNPM_HOME="/home/haicao/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -133,22 +129,15 @@ alias k="kubectl"
 # zstyle ':omz:update' mode auto
 # zstyle ':omz:update' mode reminder
 # zstyle ':omz:update' frequency 13
-GOOGLE_API_KEY="AIzaSyDL9ARvKlJ2Mp8l2ZetyaNJqxN8BG6FkKs"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# opencode
-export PATH=/home/haicao/.opencode/bin:$PATH
-
-# >>> omp profile alias: omp_bana >>>
-omp_bana() {
-    command '/home/haicao/.bun/bin/bun' '/home/haicao/.bun/install/global/node_modules/@oh-my-pi/pi-coding-agent/dist/cli.js' --profile=omp_bana "$@"
-}
-# <<< omp profile alias: omp_bana <<<
-
 alias kbana='KUBECONFIG=~/Documents/haicao-kubeconfig.yaml kubectl'
 
+# Claude accounts. Tokens come from ~/.config/claude/tokens.env; a missing one stops with a hint.
 export CLAUDE_BIN="$HOME/.local/bin/claude"
-alias claude-openrouter='CLAUDE_CONFIG_DIR="$HOME/path/to/.claude-openrouter" ANTHROPIC_BASE_URL=https://openrouter.ai/api ANTHROPIC_AUTH_TOKEN="${OPENROUTER_API_KEY:?Please setup OPENROUTER_API_KEY}" ANTHROPIC_API_KEY="" CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1 $CLAUDE_BIN'
+alias claude-haicao='CLAUDE_CODE_OAUTH_TOKEN="${CLAUDE_OAUTH_TOKEN_HAICAO:?Set CLAUDE_OAUTH_TOKEN_HAICAO in ~/.config/claude/tokens.env}" "$CLAUDE_BIN"'
+alias claude-phatnt='CLAUDE_CODE_OAUTH_TOKEN="${CLAUDE_OAUTH_TOKEN_PHATNT:?Set CLAUDE_OAUTH_TOKEN_PHATNT in ~/.config/claude/tokens.env}" "$CLAUDE_BIN"'
+alias claude-openrouter='CLAUDE_CONFIG_DIR="$HOME/.claude-openrouter" ANTHROPIC_BASE_URL=https://openrouter.ai/api ANTHROPIC_AUTH_TOKEN="${OPENROUTER_API_KEY:?Set OPENROUTER_API_KEY in ~/.config/claude/tokens.env}" ANTHROPIC_API_KEY="" CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1 "$CLAUDE_BIN"'
