@@ -1,5 +1,6 @@
-return {
+local mod = {
   "sindrets/diffview.nvim",
+  cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
@@ -7,3 +8,5 @@ return {
     use_icons = true,
   },
 }
+
+return mod
