@@ -31,12 +31,12 @@ local mod = {
         },
         git_placement = "after",
         show = {
-          git = false,
+          git = true,
         },
       },
     },
     filters = {
-      git_ignored = false,
+      git_ignored = true,
     },
     git = {
       enable = true,
