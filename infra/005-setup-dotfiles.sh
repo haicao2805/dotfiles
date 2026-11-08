@@ -25,4 +25,9 @@ mkdir -p "$HOME/.config"
 rm -rf "$HOME/.config/nvim"
 ln -s "$DOTFILES_DIR/confs/neovim" "$HOME/.config/nvim"
 
+echo "=== Symlink Lazygit config ==="
+mkdir -p "$HOME/.config/lazygit"
+rm -f "$HOME/.config/lazygit/config.yml"
+ln -s "$DOTFILES_DIR/confs/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
+
 echo "Done. Run 'source ~/.zshrc' to reload."

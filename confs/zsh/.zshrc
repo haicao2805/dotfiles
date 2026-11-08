@@ -149,3 +149,6 @@ omp_bana() {
 # <<< omp profile alias: omp_bana <<<
 
 alias kbana='KUBECONFIG=~/Documents/haicao-kubeconfig.yaml kubectl'
+
+export CLAUDE_BIN="$HOME/.local/bin/claude"
+alias claude-openrouter='CLAUDE_CONFIG_DIR="$HOME/path/to/.claude-openrouter" ANTHROPIC_BASE_URL=https://openrouter.ai/api ANTHROPIC_AUTH_TOKEN="${OPENROUTER_API_KEY:?Please setup OPENROUTER_API_KEY}" ANTHROPIC_API_KEY="" CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1 $CLAUDE_BIN'
