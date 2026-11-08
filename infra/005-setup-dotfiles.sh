@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DOTFILES_REPO="https://github.com/phatnt199/dotfiles.git"
+DOTFILES_REPO="https://github.com/haicao2805/dotfiles.git"
 DOTFILES_DIR="$HOME/tools/dotfiles"
 
 echo "=== Clone dotfiles ==="
@@ -22,8 +22,9 @@ ln -s "$DOTFILES_DIR/confs/tmux/.tmux.conf" "$HOME/.tmux.conf"
 
 echo "=== Symlink Neovim config ==="
 mkdir -p "$HOME/.config"
-rm -rf "$HOME/.config/nvim"
-ln -s "$DOTFILES_DIR/confs/neovim" "$HOME/.config/nvim"
+# Keep any existing config as a timestamped backup instead of deleting it
+[ -e "$HOME/.config/nvim" ] || [ -L "$HOME/.config/nvim" ] && mv "$HOME/.config/nvim" "$HOME/.config/nvim-bak-$(date +%s)"
+ln -s "$DOTFILES_DIR/confs/nvim" "$HOME/.config/nvim"
 
 echo "=== Symlink Lazygit config ==="
 mkdir -p "$HOME/.config/lazygit"

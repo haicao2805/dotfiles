@@ -11,6 +11,7 @@ echo 'Install dependencies...'
 sudo apt install -y build-essential ca-certificates gnupg
 sudo apt install -y zip unzip
 sudo apt install -y zsh git wget htop curl
+sudo apt install -y ripgrep fzf tmux
 sudo apt install -y nginx certbot python3-certbot-nginx
 sudo apt install -y wireguard resolvconf
 
@@ -64,12 +65,4 @@ fi
 
 echo "================================================================================"
 echo 'Install Neovim...'
-sudo mkdir -p /opt/config/neovim
-cd /opt/config/neovim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.appimage
-mv nvim-linux-arm64.appimage nvim.appimage
-sudo chmod u+x nvim.appimage
-./nvim.appimage --appimage-extract
-./squashfs-root/AppRun --version
-sudo ln -s /opt/config/neovim/squashfs-root/AppRun /usr/local/bin/nvim
-nvim -v
+bash "$(dirname "$0")/003-install-neovim.sh"
