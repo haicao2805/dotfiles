@@ -8,7 +8,11 @@ local mod = {
   config = function()
     local missing = {}
     for _, lang in ipairs(ensure_installed) do
-      if #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".so", false) == 0 then
+      -- A parser can exist without its highlight query (then nothing gets colored), so check both
+      local has_parser = #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".so", false) > 0
+      local has_query = pcall(vim.treesitter.query.get, lang, "highlights")
+        and vim.treesitter.query.get(lang, "highlights") ~= nil
+      if not (has_parser and has_query) then
         table.insert(missing, lang)
       end
     end

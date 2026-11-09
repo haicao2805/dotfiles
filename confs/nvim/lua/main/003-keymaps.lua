@@ -55,6 +55,7 @@ local keymaps = {
   { mode = "n", shortcut = "<C-r>",       fn = ":Telescope find_files<CR>",                                       desc = "Find files" },
   { mode = "n", shortcut = "<leader>gf",  fn = ":Telescope git_files<CR>",                                        desc = "Find git files" },
   { mode = "n", shortcut = "<leader>ff",  fn = ":Telescope live_grep<CR>",                                        desc = "Live grep" },
+  { mode = "n", shortcut = "<leader>fw",  fn = ":Telescope live_grep<CR>",                                        desc = "Live grep" },
   { mode = "n", shortcut = "<leader>fs",  fn = ":Telescope lsp_document_symbols<CR>",                             desc = "Document symbols" },
   { mode = "n", shortcut = "<leader>gc",  fn = ":Telescope git_commits<CR>",                                      desc = "Git commits" },
   { mode = "n", shortcut = "<leader>gst", fn = ":Telescope git_status<CR>",                                       desc = "Git status" },
