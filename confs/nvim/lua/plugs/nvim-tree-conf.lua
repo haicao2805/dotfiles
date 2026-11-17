@@ -14,7 +14,7 @@ local mod = {
       },
     },
     update_focused_file = {
-      enable = true,
+      enable = false,
       update_root = {
         enable = false,
         ignore_list = {},
@@ -43,6 +43,7 @@ local mod = {
       timeout = 400,
     },
     view = {
+      width = 65,
       cursorline = true,
     },
     diagnostics = {

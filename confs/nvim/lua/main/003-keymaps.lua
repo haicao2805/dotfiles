@@ -51,6 +51,7 @@ local keymaps = {
   -- telescope
   { mode = "n", shortcut = "<leader>ts",  fn = ":Telescope<CR>",                                                  desc = "Telescope" },
   { mode = "n", shortcut = "<C-f>",       fn = ":Telescope current_buffer_fuzzy_find<CR>",                        desc = "Fuzzy find in buffer" },
+  { mode = "n", shortcut = "<leader>D",   fn = ":Telescope diagnostics bufnr=0<CR>",                              desc = "Diagnostics in file" },
   { mode = "n", shortcut = "<C-p>",       fn = ":Telescope find_files<CR>",                                       desc = "Find files" },
   { mode = "n", shortcut = "<C-r>",       fn = ":Telescope find_files<CR>",                                       desc = "Find files" },
   { mode = "n", shortcut = "<leader>gf",  fn = ":Telescope git_files<CR>",                                        desc = "Find git files" },

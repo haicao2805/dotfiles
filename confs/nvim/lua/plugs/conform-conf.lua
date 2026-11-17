@@ -6,6 +6,8 @@ local PROJECT_ROOT_MARKERS = { { "bunfig.toml" }, { "package.json", ".git" } }
 
 local mod = {
   "stevearc/conform.nvim",
+  -- Load before the first save so format_on_save is registered (cmd alone loads it only on :ConformFormat).
+  event = "BufWritePre",
   cmd = "ConformFormat",
   config = function()
     local conform = require("conform")

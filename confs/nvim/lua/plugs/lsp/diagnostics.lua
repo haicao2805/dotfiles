@@ -10,9 +10,9 @@ end
 
 function M.setup()
   vim.diagnostic.config({
+    -- No inline messages (they lag on large files); use <space>e for the float
+    -- or <leader>dl to toggle virtual_lines.
     virtual_text = false,
-    -- No inline messages by default; use <space>e to peek the current line
-    -- in a float, or <leader>dl to toggle inline virtual_lines on/off.
     virtual_lines = false,
     underline = true,
     update_in_insert = false,
